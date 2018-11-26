@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organization>
+	<Name>Ideal Invent Technologies</Name>
+	<Establishment>2005</Establishment>
+	<!-- Location details of the organisation -->
+	<Location>
+		<AsiaZone>
+			<Location>Jaya Nagar, India</Location>
+		</AsiaZone>
+		<EuroZone>
+			<Location>Stockholm,Sweden</Location>
+			<BalticZone>Helsiniki, Finland</BalticZone>
+			<ScandinaviaZone>Oslo, Norway</ScandinaviaZone>
+			<NordicZone>Vilnus, Lithuania</NordicZone>
+		</EuroZone>
+	</Location>
+	<Worknature>Banking and Finance</Worknature>
+	<Url>http://www.idealinvent.com</Url>
+	<EmployeesSize>200</EmployeesSize>
+	<ProjectsNo>30</ProjectsNo>
+	<!-- Finance details -->
+	<Finance>
+		<TurnOver>200 million Euro</TurnOver>
+		<Margin>
+			<Quarterly>100 million</Quarterly>
+			<Halfyearly>90 million</Halfyearly>
+			<Profit>100 million Euro</Profit>
+		</Margin>
+		<HeadName>Hitendra</HeadName>
+		<Admin>Sankar</Admin>
+	</Finance>
+	<Career>
+		<Description>A bright future is waiting for you</Description>
+		<Requirement opensource="20" web="30" security="10" dba="5">
+			Current requirement for the year 2010</Requirement>
+		<Contact>careers@idealinvent.com</Contact>
+	</Career>
+	<!-- Employee details -->
+	<Employees>
+		<Employee id="A11">
+			<Name>Mr Deba</Name>
+			<Age>23</Age>
+			<Salary>1000</Salary>
+			<Designation>Software Engineer</Designation>
+			<Address>
+				<Permanent>
+					<Place>UP</Place>
+				</Permanent>
+				<Present>
+					<Place>Bangalore</Place>
+				</Present>
+			</Address>
+		</Employee>
+		<Employee id="A12">
+			<Name>Mr Sambit</Name>
+			<Age>29</Age>
+			<Salary>5000</Salary>
+			<Designation>Senior Software Engineer</Designation>
+			<Address>
+				<Permanent>
+					<Place>Delhi</Place>
+				</Permanent>
+				<Present>
+					<Place>Bangalore</Place>
+				</Present>
+			</Address>
+		</Employee>
+		<Employee id="A13">
+			<Name>Mr Suzzi Desuza</Name>
+			<Age>30</Age>
+			<Salary>10000</Salary>
+			<Designation>Project Lead</Designation>
+			<Address>
+				<Permanent>
+					<Place>Kerala</Place>
+				</Permanent>
+				<Present>
+					<Place>Bangalore</Place>
+				</Present>
+			</Address>
+		</Employee>
+		<Employee id="A14">
+			<Name>Mr Zakir Hussain</Name>
+			<Age>22</Age>
+			<Salary>1000</Salary>
+			<Designation>Junior Software Engineer</Designation>
+			<Address>
+				<Permanent>
+					<Place>Chennain</Place>
+				</Permanent>
+				<Present>
+					<Place>Bangalore</Place>
+				</Present>
+			</Address>
+		</Employee>
+		<Employee id="A15">
+			<Name>Miss Smita</Name>
+			<Age>23</Age>
+			<Salary>1000</Salary>
+			<Designation>Software Engineer</Designation>
+			<Address>
+				<Permanent>
+					<Place>Andhra Pradesh</Place>
+				</Permanent>
+				<Present>
+					<Place>Bangalore</Place>
+				</Present>
+			</Address>
+		</Employee>
+	</Employees>
+	<Projects running="10" inhouse="2" support="5" consulting="27">
+		<Development>
+			<Project id="1">
+				<Name>Core Banking Solution</Name>
+				<Client>
+					<Name>Mosaliz</Name>
+					<Location>Stockholm, Sweden</Location>
+					<Url>http://www.mosaliz.com</Url>
+				</Client>
+				<Finance cost="$233 million" duration="2 years">
+					<Onsite>
+						<Head>John Walton</Head>
+						<Address>Stockholm,Sweden</Address>
+					</Onsite>
+					<Offshore>
+						<Head>Somobrata</Head>
+						<Address>Bangalore</Address>
+					</Offshore>
+				</Finance>
+				<Technical>
+					<FrontEnd>
+						<Environment>Java</Environment>
+						<OS>Windows XP, HP UX</OS>
+						<ProjectManagement>
+							<Onsite>
+								<Project head="Bill Kling">
+									<Manager>V Sonigara</Manager>
+									<Lead>Miss Samita</Lead>
+									<Coordinator>
+										<Technical>
+											<Name>Mr Deba</Name>
+											<Area>Java</Area>
+										</Technical>
+										<Functional>
+											<Name>Mr Gopal Krishnana</Name>
+											<Area>Banking</Area>
+										</Functional>
+									</Coordinator>
+								</Project>
+							</Onsite>
+							<Offshore>
+								<Project head="Mrs Preethi">
+									<Manager>Mr Ananth Krishnan</Manager>
+									<Lead>Mr Piku</Lead>
+									<Coordinator>
+										<Technical>
+											<Name>Mr Bibhu</Name>
+											<Area>Java</Area>
+										</Technical>
+										<Functional>
+											<Name>Mr Rama Krishnana</Name>
+											<Area>Banking</Area>
+										</Functional>
+									</Coordinator>
+								</Project>
+							</Offshore>
+
+						</ProjectManagement>
+					</FrontEnd>
+					<BackEnd>
+						<Environment>Oracle</Environment>
+						<OS>Windows XP, HP UX</OS>
+						<ProjectManagement>
+							<Onsite>
+								<Project head="Bill Kling">
+									<Manager>V Sonigara</Manager>
+									<Lead>Miss Samita</Lead>
+									<Coordinator>
+										<Technical>
+											<Name>Mr V Prabhu</Name>
+											<Area>Database</Area>
+										</Technical>
+										<Functional>
+											<Name>Mr Gopal Krishnana</Name>
+											<Area>Banking</Area>
+										</Functional>
+									</Coordinator>
+								</Project>
+							</Onsite>
+							<Offshore>
+								<Project head="Mrs Preethi">
+									<Manager>Mr Ananth Krishnan</Manager>
+									<Lead>Mr Tiku</Lead>
+									<Coordinator>
+										<Technical>
+											<Name>Mr K Shrinath</Name>
+											<Area>Java</Area>
+										</Technical>
+										<Functional>
+											<Name>Mr Rama Krishnana</Name>
+											<Area>Banking</Area>
+										</Functional>
+									</Coordinator>
+								</Project>
+							</Offshore>
+						</ProjectManagement>
+					</BackEnd>
+					<Qa>
+						<Project head="Mrs Preethi">
+							<Manager>Mr Sabysachi</Manager>
+							<Lead>Mr Datta</Lead>
+							<Coordinator>
+								<Technical>
+									<Name>Mrs Aradhana</Name>
+									<Area>Testing</Area>
+								</Technical>
+								<Functional>
+									<Name>Mrs K Kamala</Name>
+									<Area>Banking</Area>
+								</Functional>
+							</Coordinator>
+						</Project>
+					</Qa>
+				</Technical>
+			</Project>
+		</Development>
+	</Projects>
+</Organization>

@@ -1,0 +1,6 @@
+<ns:return xmlns:ns="http://service.emp/xsd" xmlns:ax21="http://server.webservice.ddlab.com/xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ax21:Employee">
+	<ax21:id>1234</ax21:id>
+	<ax21:name>Deba</ax21:name>
+	<ax21:salary>13.78</ax21:salary>
+</ns:return>

@@ -1,0 +1,20 @@
+<Employee>
+<person>
+  <firstname>Anna</firstname>
+  <lastname>Smith</lastname>
+  <project type="Offshore">Intranet</project>
+  <emp>
+  	<address>
+  		<parmenet>
+  			<location>Bangalore</location>
+  		</parmenet>
+  	</address>
+  </emp>
+</person>
+<person>
+  <sex>female</sex>
+  <firstname>Hati</firstname>
+  <lastname>Ghoda</lastname>
+  <project type="Onsite">corona</project>
+</person>
+</Employee>
