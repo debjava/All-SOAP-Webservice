@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:axis2="http://service.astro/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ns="http://service.astro/xsd" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://service.astro/">
+    <wsdl:documentation>Zodiac</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://service.astro/xsd">
+            <xs:element name="getZodiacSignListResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getZodiacSign">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="day" type="xs:int"/>
+                        <xs:element minOccurs="0" name="month" type="xs:int"/>
+                        <xs:element minOccurs="0" name="year" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getZodiacSignResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getZodiacSignRequest">
+        <wsdl:part name="parameters" element="ns:getZodiacSign"/>
+    </wsdl:message>
+    <wsdl:message name="getZodiacSignResponse">
+        <wsdl:part name="parameters" element="ns:getZodiacSignResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getZodiacSignListRequest"/>
+    <wsdl:message name="getZodiacSignListResponse">
+        <wsdl:part name="parameters" element="ns:getZodiacSignListResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="ZodiacPortType">
+        <wsdl:operation name="getZodiacSign">
+            <wsdl:input message="axis2:getZodiacSignRequest" wsaw:Action="urn:getZodiacSign"/>
+            <wsdl:output message="axis2:getZodiacSignResponse" wsaw:Action="urn:getZodiacSignResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getZodiacSignList">
+            <wsdl:input message="axis2:getZodiacSignListRequest" wsaw:Action="urn:getZodiacSignList"/>
+            <wsdl:output message="axis2:getZodiacSignListResponse" wsaw:Action="urn:getZodiacSignListResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ZodiacSoap11Binding" type="axis2:ZodiacPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getZodiacSign">
+            <soap:operation soapAction="urn:getZodiacSign" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getZodiacSignList">
+            <soap:operation soapAction="urn:getZodiacSignList" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="ZodiacSoap12Binding" type="axis2:ZodiacPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getZodiacSign">
+            <soap12:operation soapAction="urn:getZodiacSign" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getZodiacSignList">
+            <soap12:operation soapAction="urn:getZodiacSignList" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="ZodiacHttpBinding" type="axis2:ZodiacPortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="getZodiacSign">
+            <http:operation location="Zodiac/getZodiacSign"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getZodiacSign"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getZodiacSign"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getZodiacSignList">
+            <http:operation location="Zodiac/getZodiacSignList"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getZodiacSignList"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getZodiacSignList"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="Zodiac">
+        <wsdl:port name="ZodiacHttpSoap11Endpoint" binding="axis2:ZodiacSoap11Binding">
+            <soap:address location="http://localhost:8080/astroservice/services/Zodiac.ZodiacHttpSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="ZodiacHttpSoap12Endpoint" binding="axis2:ZodiacSoap12Binding">
+            <soap12:address location="http://localhost:8080/astroservice/services/Zodiac.ZodiacHttpSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="ZodiacHttpEndpoint" binding="axis2:ZodiacHttpBinding">
+            <http:address location="http://localhost:8080/astroservice/services/Zodiac.ZodiacHttpEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

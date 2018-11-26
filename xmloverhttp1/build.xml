@@ -1,0 +1,62 @@
+<!-- ANT Script to generate the *.AAR file. -->
+
+<project basedir="." default="create.war" name="xmloverhttp">
+
+	<property name="src.dir"				value="${basedir}/src" />
+	<property name="bin.dir"				value="${basedir}/bin" />
+	<property name="lib.dir"				value="${basedir}/lib" />
+	<property name="dist.dir" 				value="${basedir}/dist"/>
+	<property name="web.dir" 				value="${basedir}/web"/>
+	<property name="webinf.dir" 			value="${dist.dir}/WEB-INF"/>
+	<property name="war.file.name" 			value="xmloverhttp1.war"/>
+
+	<!-- Create classpath setting -->
+	<path id="classpath">
+		<fileset dir="${lib.dir}">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+
+	<!-- Delete and Create the required directories -->
+	<target name="clean">
+		<delete dir="${dist.dir}"/>
+		<delete dir="${bin.dir}"/>
+		<mkdir dir="${dist.dir}"/>
+		<mkdir dir="${bin.dir}"/>
+		<mkdir dir="${webinf.dir}/classes"/>
+	</target>
+
+	<!-- Compile the services -->
+	<target name="compile" depends="clean">
+		<javac debug="on" 
+               fork="true"
+               destdir="${webinf.dir}/classes" 
+               srcdir="${src.dir}"
+               classpathref="classpath">
+		</javac>
+	</target>
+
+	<!-- create the .war file to deploy into server -->
+	<target name="create.war" depends="compile">
+		<delete dir="${webinf.dir}/lib"/>
+		<mkdir dir="${webinf.dir}/lib"/>
+		<copy toDir="${webinf.dir}/lib" >
+			<fileset dir="${lib.dir}">
+				<include name="**/*.jar"/>
+			</fileset>
+		</copy>
+		<copy toDir="${webinf.dir}/classes" >
+			<fileset dir="${bin.dir}">
+				<include name="**/*.*"/>
+			</fileset>
+		</copy>
+		<copy toDir="${webinf.dir}" >
+			<fileset dir="${web.dir}">
+				<include name="**/*.xml"/>
+			</fileset>
+		</copy>
+		<jar destfile="${dist.dir}/${war.file.name}">
+			<fileset dir="${dist.dir}"/>
+		</jar>
+	</target>
+</project>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:axis2="http://service.data/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ns="http://service.data/xsd" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://service.data/">
+    <wsdl:documentation>DataRetriever</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://service.data/xsd">
+            <xs:element name="getDataResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getDataRequest"/>
+    <wsdl:message name="getDataResponse">
+        <wsdl:part name="parameters" element="ns:getDataResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="DataRetrieverPortType">
+        <wsdl:operation name="getData">
+            <wsdl:input message="axis2:getDataRequest" wsaw:Action="urn:getData"/>
+            <wsdl:output message="axis2:getDataResponse" wsaw:Action="urn:getDataResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="DataRetrieverSoap11Binding" type="axis2:DataRetrieverPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getData">
+            <soap:operation soapAction="urn:getData" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="DataRetrieverSoap12Binding" type="axis2:DataRetrieverPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getData">
+            <soap12:operation soapAction="urn:getData" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="DataRetrieverHttpBinding" type="axis2:DataRetrieverPortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="getData">
+            <http:operation location="DataRetriever/getData"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getData"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getData"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="DataRetriever">
+        <wsdl:port name="DataRetrieverHttpSoap11Endpoint" binding="axis2:DataRetrieverSoap11Binding">
+            <soap:address location="http://localhost:8080/myservice/services/DataRetriever.DataRetrieverHttpSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="DataRetrieverHttpSoap12Endpoint" binding="axis2:DataRetrieverSoap12Binding">
+            <soap12:address location="http://localhost:8080/myservice/services/DataRetriever.DataRetrieverHttpSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="DataRetrieverHttpEndpoint" binding="axis2:DataRetrieverHttpBinding">
+            <http:address location="http://localhost:8080/myservice/services/DataRetriever.DataRetrieverHttpEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

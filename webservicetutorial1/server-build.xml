@@ -1,0 +1,63 @@
+<!-- ANT Script to generate the *.AAR file. -->
+
+<project basedir="." default="generate.service">
+
+	<property name="server.src.dir"			value="${basedir}/serversrc" />
+	<property name="lib.dir"				value="${basedir}/lib" />
+	<property name="build.dir" 				value="${basedir}/build"/>
+	<property name="class.name"				value="com.webservice.inttype.test.CalculatorInt"/>
+
+	<path id="axis2.classpath">
+		<fileset dir="${lib.dir}">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+
+	<!-- Compile the services -->
+
+	<target name="compile.service">
+		<mkdir dir="${build.dir}"/>
+		<mkdir dir="${build.dir}/classes"/>
+
+		<javac debug="on" 
+               fork="true"
+               destdir="${build.dir}/classes" 
+               srcdir="${server.src.dir}"
+               classpathref="axis2.classpath">
+		</javac>
+	</target>
+
+	<!-- Generate the WSDL -->
+
+	<target name="generate.wsdl" depends="compile.service">
+		<taskdef name="java2wsdl"
+                 classname="org.apache.ws.java2wsdl.Java2WSDLTask"
+                 classpathref="axis2.classpath"/>
+		<java2wsdl className="com.ddlabs.rnd.webservice.server.DataRetriever"
+                   outputLocation="${build.dir}"
+                   targetNamespace="http://service.data/"
+                   schemaTargetNamespace="http://service.data/xsd">
+			<classpath>
+				<pathelement path="${axis2.classpath}"/>
+				<pathelement location="${build.dir}/classes"/>
+			</classpath>
+		</java2wsdl>
+	</target>
+
+	<!-- Generate the Services -->
+
+	<target name="generate.service" depends="compile.service">
+		<copy toDir="${build.dir}/classes" failonerror="false">
+			<fileset dir="${basedir}/resources">
+				<include name="**/*.xml"/>
+			</fileset>
+		</copy>
+		<jar destfile="${build.dir}/data.aar">
+			<fileset dir="${build.dir}/classes"/>
+		</jar>
+	</target>
+
+	<target name="clean">
+		<delete dir="${build.dir}"/>
+	</target>
+</project>
